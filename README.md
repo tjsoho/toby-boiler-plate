@@ -1,4 +1,6 @@
 # Frontend Accelerator
+### 📣 Join the community: https://discord.gg/aaDMVKrUJ2
+
 Follow these steps to get you started:
 - [Step 1 - Choose database provider (Firestore, MongoDB)](#step-1---database)
 - [Step 2 - Choose payment provider (Stripe, LemonSqueezy)](#step-2---payment)
