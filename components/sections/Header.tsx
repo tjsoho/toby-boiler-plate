@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import ButtonSignin from "../ui/ButtonSignin";
 import logo from "@/app/icon.png";
@@ -9,28 +9,32 @@ import config from "@/appConfig";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import ButtonAccount from "../ui/ButtonAccount";
 import { useSession } from "next-auth/react";
-
-const links: {
-  href: string;
-  label: string;
-}[] = [
-  {
-    href: "/#pricing",
-    label: "Pricing",
-  },
-  {
-    href: "/#reviews",
-    label: "Reviews",
-  },
-  {
-    href: "/#faq",
-    label: "FAQ",
-  },
-];
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../ui/LocaleSwitcher";
 
 const signInButton = <ButtonSignin />;
 
 const Header = () => {
+  const t = useTranslations("Navigation");
+
+  const links: {
+    href: string;
+    label: string;
+  }[] = [
+    {
+      href: "/#pricing",
+      label: `${t("pricing")}`,
+    },
+    {
+      href: "/#reviews",
+      label: `${t("reviews")}`,
+    },
+    {
+      href: "/#faq",
+      label: `${t("faq")}`,
+    },
+  ];
+
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { status } = useSession();
@@ -85,6 +89,7 @@ const Header = () => {
 
         {/* Kebab menu on small screens */}
         <div className="flex lg:hidden">
+          <LocaleSwitcher />
           {isAuthenticated ? (
             <ButtonAccount />
           ) : (
@@ -106,6 +111,7 @@ const Header = () => {
 
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
+          <LocaleSwitcher />
           {signInButton}
         </div>
       </nav>

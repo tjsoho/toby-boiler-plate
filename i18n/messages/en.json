@@ -1,0 +1,36 @@
+{
+  "Navigation": {
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "about": "About us",
+    "support": "Support",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy"
+  },
+  "Homepage": {
+    "headline": "Supercharge Your Web Development in No Time",
+    "subheadline": "The complete boilerplate you need to launch your next project in no-time. From vision to reality in a few clicks.",
+    "about": "Go to the about page",
+    "ctaOne": "🚀 It's all about how quickly you can launch!",
+    "ctaTwo": "Be sure to not miss out!"
+  },
+  "Components": {
+    "ButtonAccount": {
+      "loggedIn": "Signed in as",
+      "membersArea": "Members area",
+      "managePurchases": "Manage purchases",
+      "support": "Support",
+      "signOut": "Sign out"
+    },
+    "ButtonLearnMore": {
+      "text": "Learn more"
+    },
+    "ButtonCheckout": {
+      "text": "Get Accelerator Now"
+    },
+    "ButtonSignIn": {
+      "text": "Sign in"
+    }
+  }
+}

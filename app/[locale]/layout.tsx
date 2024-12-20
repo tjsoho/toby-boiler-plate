@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import { ReactNode } from "react";
 import { Viewport } from "next";
 import { Inter } from "next/font/google";
@@ -6,6 +6,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import RootClientLayout from "@/components/layouts/RootLayoutClient";
 import config from "@/appConfig";
 import { generateSEOMetadata } from "@/libs/seo";
+import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -29,10 +31,20 @@ export const metadata = generateSEOMetadata({
   },
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
     <html
-      lang={config.website.locale}
+      lang={locale}
       data-theme={config.theme.main}
       className={font.className}
     >
@@ -40,7 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <GoogleAnalytics gaId={config.website.googleAnalyticsId} />
       )}
       <body>
-        <RootClientLayout>{children}</RootClientLayout>
+        <NextIntlClientProvider messages={messages}>
+          <RootClientLayout>{children}</RootClientLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

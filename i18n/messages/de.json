@@ -1,0 +1,36 @@
+{
+  "Navigation": {
+    "pricing": "Preise",
+    "reviews": "Bewertungen",
+    "faq": "FAQ",
+    "about": "Über uns",
+    "support": "Support",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzrichtlinie"
+  },
+  "Homepage": {
+    "headline": "Beschleunige deine Webentwicklung im Handumdrehen",
+    "subheadline": "Das komplette Boilerplate, das du brauchst, um dein nächstes Projekt in kürzester Zeit zu starten. Von der Vision zur Realität in nur wenigen Klicks.",
+    "about": "Zur Über-uns-Seite gehen",
+    "ctaOne": "🚀 Alles dreht sich darum, wie schnell du starten kannst!",
+    "ctaTwo": "Verpasse es nicht!"
+  },
+  "Components": {
+    "ButtonAccount": {
+      "loggedIn": "Angemeldet als",
+      "membersArea": "Mitgliederbereich",
+      "managePurchases": "Käufe verwalten",
+      "support": "Support",
+      "signOut": "Abmelden"
+    },
+    "ButtonLearnMore": {
+      "text": "Mehr erfahren"
+    },
+    "ButtonCheckout": {
+      "text": "Accelerator jetzt holen"
+    },
+    "ButtonSignIn": {
+      "text": "Anmelden"
+    }
+  }
+}

@@ -3,7 +3,7 @@ import ButtonCheckout from "../ui/ButtonCheckout";
 import { TagIcon } from "@heroicons/react/24/outline";
 import config from "@/appConfig";
 
-export default function Pricing() {
+export default async function Pricing() {
   return (
     <section
       id="pricing"

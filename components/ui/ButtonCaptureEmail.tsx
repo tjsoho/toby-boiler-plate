@@ -11,7 +11,7 @@ const ButtonCaptureEmail = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
 
@@ -27,7 +27,8 @@ const ButtonCaptureEmail = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }
+
   return (
     <form className={`w-full max-w-xs space-y-3 `} onSubmit={handleSubmit}>
       <input

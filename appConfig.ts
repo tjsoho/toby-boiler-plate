@@ -5,12 +5,11 @@ const SITE_URL = "http://localhost:3000";
 export const config: AppConfig = {
   website: {
     name: "Frontend Accelerator",
-    locale: "en-US",
     url: SITE_URL,
     description:
       "The NextJS boilerplate with all you need to build your SaaS, or any other web app.",
     keywords: "nextjs, saas, boilerplate, web app, typescript",
-    googleAnalyticsId: "UA-example-1",
+    googleAnalyticsId: "", // e.g. UA-000000-2
   },
   auth: {
     magicLinkExpirationTime: 24 * 60 * 60, // 24 hours

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowLongLeftIcon, ArrowPathIcon } from "@heroicons/react/20/solid";
 
 // Error boundary wrapper. Learn more here: https://nextjs.org/docs/app/building-your-application/routing/error-handling

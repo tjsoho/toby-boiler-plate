@@ -10,10 +10,12 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 const ButtonAccount = () => {
   const { data: session, status } = useSession();
+  const t = useTranslations("Components");
 
   const handleBilling = async () => {
     try {
@@ -66,7 +68,7 @@ const ButtonAccount = () => {
         className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
       >
         <div className="px-4 py-3">
-          <p className="text-sm">Signed in as</p>
+          <p className="text-sm">{t("ButtonAccount.loggedIn")}</p>
           <p className="truncate text-sm font-medium text-gray-900">
             {session?.user?.email}
           </p>
@@ -75,7 +77,7 @@ const ButtonAccount = () => {
           <MenuItem>
             <Link href={"/members"}>
               <button className="flex w-full items-center gap-1 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
-                <UserIcon className="w-4" /> Members area
+                <UserIcon className="w-4" /> {t("ButtonAccount.membersArea")}
               </button>
             </Link>
           </MenuItem>
@@ -84,12 +86,14 @@ const ButtonAccount = () => {
               onClick={handleBilling}
               className="flex w-full items-center gap-1 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
             >
-              <CreditCardIcon className="w-4" /> Manage purchases
+              <CreditCardIcon className="w-4" />{" "}
+              {t("ButtonAccount.managePurchases")}
             </button>
           </MenuItem>
           <MenuItem>
             <button className="flex w-full items-center gap-1 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
-              <ChatBubbleLeftIcon className="w-4" /> Support
+              <ChatBubbleLeftIcon className="w-4" />{" "}
+              {t("ButtonAccount.support")}
             </button>
           </MenuItem>
         </div>
@@ -99,7 +103,8 @@ const ButtonAccount = () => {
               onClick={handleSignOut}
               className="flex gap-1 items-center w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-red-700 hover:text-white"
             >
-              <ArrowLeftStartOnRectangleIcon className="w-4" /> Sign out
+              <ArrowLeftStartOnRectangleIcon className="w-4" />{" "}
+              {t("ButtonAccount.signOut")}
             </button>
           </MenuItem>
         </div>

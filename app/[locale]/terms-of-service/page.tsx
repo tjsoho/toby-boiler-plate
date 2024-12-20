@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { generateSEOMetadata } from "@/libs/seo";
 import config from "@/appConfig";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";

@@ -4,6 +4,7 @@ import apiClient from "@/libs/apiClient";
 import LoaderIcon from "../elements/icons/loader";
 import { RocketLaunchIcon } from "@heroicons/react/20/solid";
 import app from "@/appConfig";
+import { useTranslations } from "next-intl";
 
 const ButtonCheckout = ({
   priceId,
@@ -13,6 +14,7 @@ const ButtonCheckout = ({
   mode?: "payment" | "subscription";
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const t = useTranslations("Components");
 
   const handlePayment = async () => {
     setIsLoading(true);
@@ -42,7 +44,7 @@ const ButtonCheckout = ({
       ) : (
         <RocketLaunchIcon className="w-5 group-hover:-rotate-3 group-hover:scale-110 duration-200" />
       )}
-      Get Accelerator Now
+      {t("ButtonCheckout.text")}
     </button>
   );
 };

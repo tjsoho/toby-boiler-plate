@@ -8,7 +8,6 @@ export interface AppConfig {
     url: string;
     description: string;
     keywords: string;
-    locale: string;
     googleAnalyticsId?: string;
   };
   theme: {

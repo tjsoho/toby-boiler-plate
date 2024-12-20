@@ -1,6 +1,7 @@
 import { SoftwareApplication } from "schema-dts";
 import type { Metadata } from "next";
 import config from "@/appConfig";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 
 // Generates SEO tags for the page
 export const generateSEOMetadata = ({
@@ -33,7 +34,7 @@ export const generateSEOMetadata = ({
       description: openGraph?.description || config.website.description,
       url: openGraph?.url || `${config.website.url}/`,
       type: "website",
-      locale: config.website.locale.replace("-", "_"), // en-US -> en_US, Open Graph requires an underscore
+      locale: DEFAULT_LOCALE.replace("-", "_"), // en-US -> en_US, Open Graph requires an underscore
     },
 
     twitter: {

@@ -1,4 +1,3 @@
-"use client";
 import { Suspense } from "react";
 import Header from "@/components/sections/Header";
 import Features from "@/components/sections/Features";
@@ -10,9 +9,12 @@ import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 import ButtonCaptureEmail from "@/components/ui/ButtonCaptureEmail";
+import { useTranslations } from "next-intl";
 import SuccessToaster from "@/components/SuccessToaster";
 
 export default function Home() {
+  const t = useTranslations("Homepage");
+
   return (
     <>
       <Suspense>
@@ -22,17 +24,17 @@ export default function Home() {
       <main>
         <Hero
           style={2}
-          headline="Supercharge Your Web Development in No Time"
-          subHeadline="The complete boilerplate you need to launch your next project in no-time. From vision to reality in a few clicks."
+          headline={t("headline")}
+          subHeadline={t("subheadline")}
           imageUrl="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
         />
         <Stats />
         <Features />
         <Pricing />
-        <CTA title="🚀 It's all about how quickly you can launch!" />
+        <CTA title={t("ctaOne")} />
         <Reviews />
         <FAQ />
-        <CTA title={`Be sure to not miss out!`} cta={<ButtonCaptureEmail />} />
+        <CTA title={t("ctaTwo")} cta={<ButtonCaptureEmail />} />
       </main>
       <Footer />
     </>

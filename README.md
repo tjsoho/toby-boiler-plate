@@ -95,3 +95,22 @@ _Note: Remember to rename `.env.example` to `.env` and not commit it to Github!_
 TIP: For testing webhooks locally you can use https://webhook.site/ which can forward webhooks to localhost. 
 
 ### You are now ready to launch! 🚀
+
+## Localization
+Localization is implemented using [Next-intl](https://next-intl.dev/docs/getting-started/app-router/with-i18n-routing) library. Out of the box `en` and `de` are implemented as examples, together with `<LocaleSwitcher>` component. <br />
+#### Locales
+Locales can be set and configured in the `i18n/config.ts` file.
+
+#### Locales in URL's
+Currently default locale is hidden from url, only any additional locales will be visible in the url.
+- `en` _will not_ be shown in url -> website.com/members
+- `de` _will be_ shown in url -> website.com/de/members
+
+Showing default locale in the URL can be controlled through `i18n/routing.ts` file with option of `localePrefix` set to `always` or `as-needed`. Additionally, you will need to comment out rewriting in `middleware.ts`. Then your default locale will be shown in the url. <br /><br />
+For more info and options check the official documentation: https://next-intl.dev/docs/getting-started/app-router/with-i18n-routing
+
+#### Using locales
+You define translations inside `i18n/messages`. Afterwards you can access them through a hook `useTranslations(<namespace>)`. See example on the Homepage.
+
+#### Linking and navigating
+To ensure proper navigation remember to use `<Link>` component from `i18n/routing` rather then the `next/link`.
