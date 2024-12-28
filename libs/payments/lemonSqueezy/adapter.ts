@@ -37,8 +37,8 @@ export class LemonSqueezeAdapter implements PaymentAdapterInterface {
     });
   }
 
-  verifyWebhookSignature(rawBody: ArrayBuffer) {
-    const signature = headers().get("x-signature");
+  async verifyWebhookSignature(rawBody: ArrayBuffer) {
+    const signature = (await headers()).get("x-signature");
     const secret = process.env.LEMON_SQUEEZY_WEBHOOK_SECRET || "";
 
     if (!verifySignature(rawBody, signature, secret)) {
@@ -163,10 +163,15 @@ function verifySignature(
   signature: string,
   secret: string
 ): boolean {
+  // Create HMAC from the raw body and secret
   const hmac = crypto.createHmac("sha256", secret);
-  const buffer = Buffer.from(new Uint8Array(rawBody));
-  const digest = Buffer.from(hmac.update(buffer).digest("hex"), "utf8");
-  const receivedSignature = Buffer.from(signature, "utf8");
+  const digest = hmac.update(Buffer.from(rawBody)).digest("hex");
 
-  return crypto.timingSafeEqual(digest, receivedSignature);
+  // Ensure the received signature is in the same hex format
+  const receivedSignature = signature.trim();
+
+  return crypto.timingSafeEqual(
+    Buffer.from(digest, "hex"),
+    Buffer.from(receivedSignature, "hex")
+  );
 }

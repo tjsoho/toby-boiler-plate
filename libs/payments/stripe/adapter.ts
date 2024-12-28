@@ -14,7 +14,7 @@ import {
 } from "../payment.types";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2024-09-30.acacia",
+  apiVersion: "2024-11-20.acacia",
   typescript: true,
 });
 
@@ -28,8 +28,8 @@ export class StripeAdapter implements PaymentAdapterInterface {
     );
   }
 
-  verifyWebhookSignature(rawBody: ArrayBuffer) {
-    const signature = headers().get("stripe-signature");
+  async verifyWebhookSignature(rawBody: ArrayBuffer) {
+    const signature = (await headers()).get("stripe-signature");
     this.constructStripeEvent(rawBody, signature);
   }
 

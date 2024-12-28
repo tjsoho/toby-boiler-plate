@@ -1,3 +1,4 @@
+import { App, cert, getApp, getApps, initializeApp } from "firebase-admin/app";
 import { CommonAdapter } from "../types";
 import {
   DocumentData,
@@ -6,6 +7,7 @@ import {
 } from "firebase-admin/firestore";
 
 let firestore: Firestore;
+let app: App;
 export class FirestoreAdapter implements CommonAdapter {
   constructor() {
     if (
@@ -18,8 +20,20 @@ export class FirestoreAdapter implements CommonAdapter {
       );
     }
 
-    if (!firestore) {
-      firestore = getFirestore();
+    if (!app || !firestore) {
+      app = getApps().length
+        ? getApp()
+        : initializeApp({
+            credential: cert({
+              projectId: process.env.AUTH_FIREBASE_PROJECT_ID,
+              clientEmail: process.env.AUTH_FIREBASE_CLIENT_EMAIL,
+              privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY?.replace(
+                /\\n/g,
+                "\n"
+              ), // Handle escaped newlines
+            }),
+          });
+      firestore = getFirestore(app);
     }
   }
 

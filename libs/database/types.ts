@@ -1,4 +1,4 @@
-import { PaymentType } from "../types";
+import type { PaymentType } from "../types";
 
 export interface User {
   id: string;

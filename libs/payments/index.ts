@@ -18,7 +18,7 @@ export class PaymentAdapter {
     }
   }
 
-  verifyWebhookSignature(req: ArrayBuffer) {
+  async verifyWebhookSignature(req: ArrayBuffer) {
     return this.payment.verifyWebhookSignature(req);
   }
 

@@ -1,4 +1,5 @@
 # Frontend Accelerator
+#### Note: Exclusively for members of the Frontend Accelerator
 ### 📣 Join the community: https://discord.gg/aaDMVKrUJ2
 
 Follow these steps to get you started:

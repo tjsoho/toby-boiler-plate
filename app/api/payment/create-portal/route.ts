@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/libs/auth";
+import { authOptions } from "@/libs/auth/next-auth";
 import { Database } from "@/libs/database";
 import { PaymentAdapter } from "@/libs/payments";
 

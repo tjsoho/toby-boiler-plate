@@ -34,7 +34,7 @@ export const config: AppConfig = {
         /* 
         / Example of priceId
         / Stripe - "price_1PMqCcDv...." (priceId)
-        / Lemon Squeezy - "108xxx-449xxx", (storeId - variantId)
+        / Lemon Squeezy - "108xxx-449xxx", (format: storeId-variantId)
         */
         priceId: "price_1PMqCcDv....",
         isFeatured: false,

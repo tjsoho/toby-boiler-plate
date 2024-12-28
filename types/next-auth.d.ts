@@ -1,6 +1,6 @@
 import "next-auth";
-import { User } from "../database/types";
-import { DefaultSession } from "next-auth";
+import type { User } from "../libs/database/types";
+import type { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface Session {

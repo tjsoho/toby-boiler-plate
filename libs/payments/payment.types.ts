@@ -28,7 +28,7 @@ export interface PaymentCustomer {
 export interface PaymentInvoice extends PaymentSubscription {}
 
 export interface PaymentAdapterInterface {
-  verifyWebhookSignature(req: ArrayBuffer): void;
+  verifyWebhookSignature(req: ArrayBuffer): Promise<void>;
   mapWebhookType(webhook: any): PaymentEvent;
   mapToCheckout(webhook: any): Promise<PaymentCheckout>;
   mapToSubscription(webhook: any): Promise<PaymentSubscription>;
