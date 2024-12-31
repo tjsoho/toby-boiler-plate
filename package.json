@@ -21,7 +21,7 @@
     "axios": "^1.7.5",
     "country-flag-icons": "^1.5.13",
     "firebase-admin": "^12.7.0",
-    "mongodb": "6.8.0",
+    "mongodb": "6.12.0",
     "next": "15.1.2",
     "next-auth": "^4.24.11",
     "next-intl": "^3.26.2",
