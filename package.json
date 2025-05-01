@@ -16,7 +16,7 @@
     "@auth/mongodb-adapter": "^3.4.2",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
-    "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
+    "@lemonsqueezy/lemonsqueezy.js": "^4.0.0",
     "@next/third-parties": "15.1.2",
     "axios": "^1.7.5",
     "country-flag-icons": "^1.5.13",
